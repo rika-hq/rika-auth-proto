@@ -19,6 +19,7 @@ message User {
   string fullName = 1;
   string email = 2;
   string profile_photo = 3;
+  string id = 4;
 }
 
 message CheckTokenRequest { string token = 1; }
