@@ -6,14 +6,13 @@ option java_multiple_files = true;
 option java_package = "com.rika.auth";
 
 service AuthService {
-  rpc Signin(SigninDTO) returns (SigninResponse) {};
-  rpc CheckToken(CheckTokenDTO) returns (User) {};
+  rpc Signin(SigninRequest) returns (SigninResponse) {};
+  rpc CheckToken(CheckTokenRequest) returns (User) {};
 }
 
 message SigninResponse {
-  bool error = 1;
-  string message = 2;
-  User user = 3;
+  string token = 3;
+  User user = 4;
 }
 
 message User {
@@ -22,9 +21,9 @@ message User {
   string profile_photo = 3;
 }
 
-message CheckTokenDTO { string token = 1; }
+message CheckTokenRequest { string token = 1; }
 
-message SigninDTO {
+message SigninRequest {
   string email = 1;
   string password = 2;
 }
